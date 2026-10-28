@@ -1,0 +1,9 @@
+{
+ "pemenang": "fusi_utama+k1c",
+ "komponen": [
+  "DRA-OA[utama:gabungan]",
+  "K1[k1c:joint_band:mean]"
+ ],
+ "model_name": "usulan_",
+ "dfs": "D:\\PCD\\PCD-KNEE\\hasil_stage1\\pipeline\\outputs\\dfs\\ss"
+}

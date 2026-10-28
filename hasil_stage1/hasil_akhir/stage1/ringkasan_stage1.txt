@@ -1,0 +1,33 @@
+==============================================================================
+STAGE 1 - METODE usulan (komponen tetap; pilihan di dalam komponen dari VAL)
+spesifikasi: fusi_utama+k1c
+komponen   : DRA-OA[utama:gabungan] + K1[k1c:joint_band:mean]
+seed     : 1001, 138647, 193, 34, 44, 71530, 875688, 8765, 985772, 244959 (10 seed)
+==============================================================================
+split        AUC_KL (KL>=2)                  SRC      AUC_KL>3 (KL=4)             AUC KL>0
+val        0.8067 +- 0.0191     0.5750 +- 0.0270     0.9530 +- 0.0146     0.7531 +- 0.0169
+test       0.7949 +- 0.0165     0.5690 +- 0.0289     0.9510 +- 0.0091     0.7527 +- 0.0171
+(rata-rata +- SD antar seed, seperti tabel Belton)
+ENSEMBLE 10 seed, val : AUC_KL 0.8566  SRC 0.6643  AUC_KL>3 0.9738
+ENSEMBLE 10 seed, test: AUC_KL 0.8437  SRC 0.6580  AUC_KL>3 0.9704   CI95 AUC_KL [0.824-0.863] SRC [0.625-0.689]
+
+PENGATURAN METODE (tuning di VAL, pilih = (AUC_KL + SRC) / 2, rata-rata 10 seed)
+  DRA-OA utama: kandidat skor terpilih = gabungan (kepala S,P,R)
+    gabungan             pilih 0.6968
+    R                    pilih 0.6795
+    P                    pilih 0.6159
+    S                    pilih 0.6092
+  memory bank k1c: region:agregasi terpilih = joint_band:mean
+    joint_band:mean      AUC_KL 0.7385  SRC 0.4328  pilih 0.5856
+    all:mean             AUC_KL 0.7367  SRC 0.4275  pilih 0.5821
+    margins:mean         AUC_KL 0.7222  SRC 0.4078  pilih 0.5650
+    joint_band:top3      AUC_KL 0.6613  SRC 0.3002  pilih 0.4807
+    margins:top3         AUC_KL 0.6573  SRC 0.2967  pilih 0.4770
+    all:top3             AUC_KL 0.6567  SRC 0.2927  pilih 0.4747
+    joint_band:max       AUC_KL 0.6506  SRC 0.2812  pilih 0.4659
+    margins:max          AUC_KL 0.6472  SRC 0.2777  pilih 0.4624
+    all:max              AUC_KL 0.6465  SRC 0.2746  pilih 0.4605
+  fusi: rata-rata z-score komponen (mean/SD skor VAL per seed), bobot sama
+
+File Belton : D:\PCD\PCD-KNEE\hasil_stage1\pipeline\outputs\dfs\ss  (10 seed x 2 file)
+Lanjut      : (dari folder D:\PCD\PCD-KNEE\hasil_stage1\pipeline) python <ss_fewsome>/main.py --train_ss 0 --model_name usulan_ --data_path D:\PCD\PCD-KNEE\ss_fewsome\data/
