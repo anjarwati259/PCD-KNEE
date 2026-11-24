@@ -1,0 +1,21 @@
+============================================================================================
+ABLATION C1 / C2 - DCRL iterasi 1 [test], ensemble 10 seed
+============================================================================================
+  variasi      AUC_KL      SRC   AUC_KL>3
+  C1 + C2      0.8197   0.5958     0.9362
+  C1 saja      0.7514   0.4622     0.9164
+  C2 saja      0.7866   0.5375     0.9293
+
+Pembanding: usulan lama 0,745 / 0,458 ; baseline Belton 0,788 / 0,535 (AUC_KL / SRC)
+
+Terbaik (AUC_KL): C1 + C2
+  vs terbaik selisih AUC_KL        p  selisih SRC        p   setara?
+  C1 saja           -0.0683   0.0000      -0.1336   0.0000   tidak
+  C2 saja           -0.0331   0.0000      -0.0583   0.0000   tidak
+  (selisih = variasi - terbaik; setara = p >= 0,05 untuk AUC_KL dan SRC)
+
+REKOMENDASI (aturan: paling sederhana di antara terbaik + yang setara; C1 saja < C2 saja < C1 + C2):
+  -> C1 + C2 dilanjutkan ke iterasi 2 + prediktor parah + FINAL
+     perintah: python run_C1C2.py --tahap lanjut
+
+Detail: perbandingan\hasil_<variasi>\ringkasan_stage1_3.txt dan perbandingan\<variasi>_vs_<terbaik>\

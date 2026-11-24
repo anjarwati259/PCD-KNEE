@@ -1,0 +1,28 @@
+============================================================================================================
+PERBANDINGAN METODE USULAN vs BASELINE BELTON (data TEST)
+baseline: D:\PCD\PCD-KNEE\hasil_ablasi_C1C2\perbandingan\hasil_C1_saja
+usulan  : D:\PCD\PCD-KNEE\hasil_ablasi_C1C2\perbandingan\hasil_C1C2
+mean +- SD antar seed | ensemble.  Selisih = usulan - baseline.
+============================================================================================================
+
+Stage 1   (10 seed berpasangan, 1656 gambar test)
+  metrik                        baseline                      usulan   selisih ens.    p (uji t)   CI 95% selisih [p bootstrap]
+  AUC_KL       0.7949 +- 0.0165 | 0.8428   0.7949 +- 0.0165 | 0.8428        +0.0000          nan   [+0.000 .. +0.000]  p=1.0000
+  SRC          0.5690 +- 0.0289 | 0.6564   0.5690 +- 0.0289 | 0.6564        +0.0000          nan   [+0.000 .. +0.000]  p=1.0000
+  AUC_KL>3     0.9510 +- 0.0091 | 0.9704   0.9510 +- 0.0091 | 0.9704        +0.0000          nan   
+  AUC KL>0     0.7527 +- 0.0171 | 0.8001   0.7527 +- 0.0171 | 0.8001        +0.0000          nan   
+
+Stage 3 DCRL iterasi 1   (10 seed berpasangan, 1656 gambar test)
+  metrik                        baseline                      usulan   selisih ens.    p (uji t)   CI 95% selisih [p bootstrap]
+  AUC_KL       0.7487 +- 0.0199 | 0.7514   0.7861 +- 0.0219 | 0.8197        +0.0683       0.0020   [+0.049 .. +0.088]  p=0.0000
+  SRC          0.4585 +- 0.0368 | 0.4622   0.5358 +- 0.0412 | 0.5958        +0.1336       0.0005   [+0.101 .. +0.167]  p=0.0000
+  AUC_KL>3     0.9162 +- 0.0199 | 0.9164   0.9055 +- 0.0181 | 0.9362        +0.0198       0.2223   
+  AUC KL>0     0.7012 +- 0.0184 | 0.7028   0.7284 +- 0.0234 | 0.7575        +0.0548       0.0071   
+
+Stage 3 DCRL iterasi 2: dilewati (belum ada di baseline dan usulan)
+
+Prediktor parah: dilewati (belum ada di baseline dan usulan)
+
+FINAL: dilewati (belum ada di baseline dan usulan)
+
+Cara baca: selisih positif = usulan lebih tinggi. Beda dianggap bermakna bila p < 0,05 dan CI 95% tidak memuat 0.
