@@ -1,0 +1,21 @@
+================================================================================================
+PERBAIKAN STAGE 2-3 TANPA TRAINING ULANG   (hasil: D:\PCD\PCD-KNEE\anatomy\hasil_usulan)
+================================================================================================
+
+STAGE 3 - aturan skor akhir (TEST, ensemble, 1656 gambar)
+  aturan                       AUC_KL      SRC  AUC_KL>3  AUC KL>0   CI 95% AUC_KL | SRC
+  Stage 1 (tetap)              0.8428   0.6564    0.9704    0.8001   [0.823-0.861] | [0.626-0.687]
+  DCRL iterasi 2               0.7956   0.5552    0.9277    0.7560   [0.775-0.816] | [0.523-0.590]
+  FINAL Belton                 0.7875   0.5425    0.9062    0.7528   [0.765-0.808] | [0.510-0.577]
+  FINAL-S1parah (baru)         0.7971   0.5610    0.9474    0.7567   [0.776-0.818] | [0.528-0.596]
+  FINAL-fusi 50:50 (baru)      0.8423   0.6494    0.9544    0.8021   [0.822-0.861] | [0.621-0.679]
+
+STAGE 2 - simulasi 30 pseudo-label dari skor Stage 1 train (5778 gambar, tanpa training)
+  cara pilih             % KL>=2   % KL0   KL0 KL1 KL2 KL3 KL4
+  Belton (atas-30)         100.0     0.0     0   0   0  11  19
+  berlapis-150             100.0     0.0     0   0   1  15  14
+  berlapis-300             100.0     0.0     0   0   0  20  10
+  asli (run)               100.0     0.0     0   0   0  11  19   <- yang benar-benar dipilih main.py
+
+Catatan: aturan Stage 3 ditetapkan di awal, tidak dipilih dari hasil test. Simulasi Stage 2 hanya menilai
+kualitas pseudo-label; FINAL dengan pseudo-label baru baru diketahui setelah DCRL dilatih ulang.

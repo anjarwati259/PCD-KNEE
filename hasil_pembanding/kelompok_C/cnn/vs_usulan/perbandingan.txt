@@ -1,0 +1,28 @@
+============================================================================================================
+PERBANDINGAN METODE USULAN vs BASELINE BELTON (data TEST)
+baseline: D:\PCD\PCD-KNEE\hasil_pembanding\kelompok_C\cnn\hasil
+usulan  : D:\PCD\PCD-KNEE\hasil_C1C2\hasil
+mean +- SD antar seed | ensemble.  Selisih = usulan - baseline.
+============================================================================================================
+
+Stage 1   (10 seed berpasangan, 1656 gambar test)
+  metrik                        baseline                      usulan   selisih ens.    p (uji t)   CI 95% selisih [p bootstrap]
+  AUC_KL       0.7748 +- 0.0232 | 0.8292   0.7949 +- 0.0165 | 0.8428        +0.0136       0.0745   [-0.002 .. +0.028]  p=0.0920
+  SRC          0.5154 +- 0.0445 | 0.6187   0.5690 +- 0.0289 | 0.6564        +0.0377       0.0120   [+0.013 .. +0.062]  p=0.0010
+  AUC_KL>3     0.8876 +- 0.0327 | 0.9354   0.9510 +- 0.0091 | 0.9704        +0.0350       0.0001   
+  AUC KL>0     0.7489 +- 0.0224 | 0.8034   0.7527 +- 0.0171 | 0.8001        -0.0034       0.6782   
+
+Stage 3 DCRL iterasi 1: dilewati (belum ada di baseline)
+
+Stage 3 DCRL iterasi 2: dilewati (belum ada di baseline)
+
+Prediktor parah: dilewati (belum ada di baseline)
+
+FINAL   (5 seed berpasangan, 1656 gambar test)
+  metrik                        baseline                      usulan   selisih ens.    p (uji t)   CI 95% selisih [p bootstrap]
+  AUC_KL       0.7721 +- 0.0196 | 0.8292   0.8197 +- 0.0032 | 0.8199        -0.0092       0.0085   [-0.031 .. +0.011]  p=0.3640
+  SRC          0.5096 +- 0.0429 | 0.6187   0.6009 +- 0.0055 | 0.6014        -0.0173       0.0123   [-0.051 .. +0.014]  p=0.2730
+  AUC_KL>3     0.8798 +- 0.0332 | 0.9354   0.9220 +- 0.0073 | 0.9215        -0.0139       0.0504   
+  AUC KL>0     0.7465 +- 0.0212 | 0.8034   0.7646 +- 0.0022 | 0.7653        -0.0381       0.1511   
+
+Cara baca: selisih positif = usulan lebih tinggi. Beda dianggap bermakna bila p < 0,05 dan CI 95% tidak memuat 0.

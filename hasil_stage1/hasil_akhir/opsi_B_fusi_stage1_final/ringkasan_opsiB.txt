@@ -1,0 +1,30 @@
+====================================================================================================
+OPSI B - FUSI SKOR STAGE 1 + FINAL   (model: usulan_ | folder: D:\PCD\PCD-KNEE\hasil_stage1\pipeline)
+skor B = 0.5 * z(Stage 1) + 0.5 * z(FINAL); z dari mean/SD skor test masing-masing (tanpa label)
+test; mean +- SD per seed (5 seed: 1001, 138647, 193, 34, 44) | ensemble [CI 95% bootstrap]
+====================================================================================================
+
+Stage 1 (opsi A)
+  AUC_KL     0.7952 +- 0.0150 | 0.8428  [0.822-0.862]
+  SRC        0.5660 +- 0.0283 | 0.6564  [0.623-0.688]
+  AUC_KL>3   0.9476 +- 0.0104 | 0.9704
+  AUC KL>0   0.7516 +- 0.0164 | 0.8001
+
+FINAL Belton
+  AUC_KL     0.7879 +- 0.0040 | 0.7875  [0.765-0.809]
+  SRC        0.5429 +- 0.0055 | 0.5425  [0.504-0.576]
+  AUC_KL>3   0.9102 +- 0.0111 | 0.9062
+  AUC KL>0   0.7516 +- 0.0037 | 0.7528
+
+Opsi B: fusi Stage 1 + FINAL
+  AUC_KL     0.7972 +- 0.0144 | 0.8357  [0.816-0.855]
+  SRC        0.5653 +- 0.0257 | 0.6394  [0.607-0.669]
+  AUC_KL>3   0.9285 +- 0.0074 | 0.9439
+  AUC KL>0   0.7573 +- 0.0149 | 0.7989
+
+Selisih ensemble (bootstrap berpasangan, gambar test yang sama):
+  B - FINAL Belton  AUC_KL +0.0484 [+0.0323, +0.0647] p=<0.001   SRC +0.0971 [+0.0703, +0.1213] p=<0.001
+  B - Stage 1       AUC_KL -0.0071 [-0.0130, -0.0015] p=0.004   SRC -0.0172 [-0.0270, -0.0087] p=<0.001
+
+Catatan: angka "Stage 1 (opsi A)" dan "FINAL Belton" di sini dihitung dari file yang sama dengan
+ringkasan_stage1_3.txt (hanya dibaca). Per seed hanya 5 seed karena FINAL Belton memakai 5 seed.

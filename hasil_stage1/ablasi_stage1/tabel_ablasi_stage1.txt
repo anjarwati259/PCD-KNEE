@@ -1,0 +1,39 @@
+======================================================================================================================
+ABLATION LEVEL STAGE 1 - TEST (mean +- SD 10 seed | ensemble). Selisih = ablation - usulan; p dari uji t per seed / bootstrap ensemble
+======================================================================================================================
+  kode    AUC_KL                  SRC                     AUC_KL>3                dAUC_KL (p_t|p_b)    dSRC (p_t|p_b)
+  USULAN  0.7949+-0.0165|0.8437   0.5690+-0.0289|0.6580   0.9510+-0.0091|0.9704                   -                 -
+          metode usulan lengkap  [DRA-OA utama [gabungan] + memory bank k1c [joint_band:mean]]
+  A1      0.7922+-0.0167|0.8454   0.5598+-0.0318|0.6557   0.9464+-0.0125|0.9677   -0.0027 (0.512|0.674) -0.0092 (0.157|0.666)
+          (1) anatomi: memory bank global tanpa penyejajaran  [DRA-OA utama [gabungan] + memory bank dual_global_c [joint_band:mean]]
+  A2      0.7800+-0.0147|0.7955   0.5344+-0.0261|0.5625   0.9582+-0.0052|0.9645   -0.0149 (0.005|<0.001) -0.0346 (0.001|<0.001)
+          (2) tanpa bank OA (bank normal per lokasi saja)  [DRA-OA utama [gabungan] + memory bank location [joint_band:mean]]
+  A3      0.7899+-0.0186|0.8412   0.5596+-0.0292|0.6519   0.9447+-0.0117|0.9681   -0.0050 (0.096|0.294) -0.0093 (0.082|0.090)
+          (2) bank OA tidak dipisah per grade  [DRA-OA utama [gabungan] + memory bank k1b [joint_band:mean]]
+  A4      0.7254+-0.0247|0.7990   0.4331+-0.0412|0.5715   0.8681+-0.0240|0.9346   -0.0695 (0.000|<0.001) -0.1358 (0.000|<0.001)
+          (3-5) tanpa DRA-OA (memory bank saja)  [memory bank k1c [joint_band:mean]]
+  A5      0.7974+-0.0189|0.8299   0.5747+-0.0349|0.6330   0.9531+-0.0079|0.9653   +0.0025 (0.700|0.016) +0.0057 (0.589|0.010)
+          (2,6) tanpa memory bank (DRA-OA saja)  [DRA-OA utama [gabungan]]
+  A6      0.7851+-0.0199|0.8479   0.5411+-0.0366|0.6568   0.9244+-0.0196|0.9612   -0.0099 (0.008|0.222) -0.0279 (0.001|0.780)
+          (3,4) tanpa OA sintetis  [DRA-OA tanpa_sintetis [gabungan] + memory bank k1c [joint_band:mean]]
+  A7      0.7889+-0.0184|0.8390   0.5577+-0.0320|0.6489   0.9488+-0.0113|0.9699   -0.0060 (0.001|<0.001) -0.0113 (0.001|<0.001)
+          (3) sintetis dari potongan acak, bukan taji asli  [DRA-OA acak [gabungan] + memory bank k1c [joint_band:mean]]
+  A8      0.7892+-0.0184|0.8398   0.5611+-0.0333|0.6538   0.9464+-0.0129|0.9688   -0.0057 (0.009|0.002) -0.0079 (0.035|0.016)
+          (5) tanpa kepala residual R  [DRA-OA tanpa_residual [gabungan] + memory bank k1c [joint_band:mean]]
+  T1      0.6905+-0.0096|0.7026   0.3584+-0.0171|0.3791   0.9016+-0.0051|0.9075   -0.1044 (0.000|<0.001) -0.2106 (0.000|<0.001)
+          PatchCore asli (tanpa anatomi, tanpa bank OA, tanpa DRA)  [memory bank global [joint_band:mean]]
+  T2      0.7971+-0.0171|0.8485   0.5630+-0.0303|0.6559   0.9536+-0.0100|0.9729   +0.0022 (0.067|0.096) -0.0060 (0.019|0.704)
+          (4) sintetis hanya taji  [DRA-OA taji_saja [gabungan] + memory bank k1c [joint_band:mean]]
+  T3      0.7842+-0.0204|0.8333   0.5534+-0.0363|0.6446   0.9304+-0.0167|0.9572   -0.0107 (0.001|<0.001) -0.0156 (0.001|0.004)
+          (4) sintetis hanya penyempitan celah  [DRA-OA jsn_saja [gabungan] + memory bank k1c [joint_band:mean]]
+  T4      0.7930+-0.0163|0.8420   0.5660+-0.0275|0.6554   0.9492+-0.0085|0.9693   -0.0020 (0.095|0.006) -0.0029 (0.207|<0.001)
+          (3) bank taji tanpa syarat tonjolan  [DRA-OA besar [gabungan] + memory bank k1c [joint_band:mean]]
+  T5      0.7757+-0.0311|0.8492   0.5264+-0.0636|0.6626   0.9073+-0.0372|0.9575   -0.0192 (0.019|0.126) -0.0426 (0.014|0.496)
+          (5) kepala S saja  [DRA-OA seen_saja [S] + memory bank k1c [joint_band:mean]]
+  T6      0.7696+-0.0103|0.8078   0.5354+-0.0164|0.6049   0.9559+-0.0064|0.9692   -0.0253 (0.000|<0.001) -0.0335 (0.001|<0.001)
+          (5) kepala P saja (tanpa OA asli)  [DRA-OA pseudo_saja [P] + memory bank k1c [joint_band:mean]]
+
+USULAN ensemble test CI 95%: AUC_KL [0.824-0.863]  SRC [0.625-0.689]
+Semua varian memakai prosedur yang sama: pengaturan dipilih di VAL, fusi z-score, dilaporkan di TEST.
+p_t = uji t berpasangan per seed (n=10); p_b = bootstrap berpasangan ensemble (1000 ulangan).
+Ini ablation level Stage 1. Untuk Stage 2-3, ablation terpilih dijalankan terpisah nanti.

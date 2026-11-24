@@ -1,0 +1,35 @@
+{
+ "folder": "D:\\PCD\\PCD-KNEE\\hasil_stage1\\pipeline",
+ "prefix": "usulan_",
+ "bobot_stage1": 0.5,
+ "bobot_final": 0.5,
+ "normalisasi": "z-score dari skor test masing-masing (tanpa label)",
+ "seeds": [
+  "1001",
+  "138647",
+  "193",
+  "34",
+  "44"
+ ],
+ "epochs": {
+  "dcrl_iterasi1": {
+   "1001": 1380,
+   "138647": 1290,
+   "193": 1300,
+   "244959": 1370,
+   "34": 1220,
+   "44": 1250,
+   "71530": 1260,
+   "875688": 1230,
+   "8765": 1180,
+   "985772": 1240
+  },
+  "dcrl_iterasi2": {
+   "1001": 1970,
+   "138647": 2020,
+   "193": 1890,
+   "34": 1750,
+   "44": 2030
+  }
+ }
+}

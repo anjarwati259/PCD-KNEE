@@ -1,0 +1,36 @@
+====================================================================================================
+HASIL STAGE 1 - 3   (model: usulan_ | folder: D:\PCD\PCD-KNEE\hasil_pembanding\C2_setara\pipeline)
+mean +- SD antar seed | ensemble [CI 95% bootstrap]
+====================================================================================================
+
+Stage 1 [test]  10 seed
+  AUC_KL     0.7949 +- 0.0165 | 0.8428  [0.823-0.861]
+  SRC        0.5690 +- 0.0289 | 0.6564  [0.626-0.687]
+  AUC_KL>3   0.9510 +- 0.0091 | 0.9704
+  AUC KL>0   0.7527 +- 0.0171 | 0.8001
+
+Stage 1 [train = unlabelled Belton]  10 seed
+  AUC_KL     0.8065 +- 0.0126 | 0.8580  [0.847-0.868]
+  SRC        0.5753 +- 0.0231 | 0.6659  [0.649-0.682]
+  AUC_KL>3   0.9504 +- 0.0099 | 0.9690
+  AUC KL>0   0.7550 +- 0.0136 | 0.8035
+
+Stage 3 DCRL iterasi 1 [test]  10 seed
+  AUC_KL     0.7648 +- 0.0267 | 0.8056  [0.784-0.827]
+  SRC        0.4960 +- 0.0509 | 0.5684  [0.533-0.604]
+  AUC_KL>3   0.9084 +- 0.0361 | 0.9380
+  AUC KL>0   0.7104 +- 0.0250 | 0.7445
+
+Stage 3 DCRL iterasi 1 [train = unlabelled Belton]  10 seed
+  AUC_KL     0.7649 +- 0.0268 | 0.8040  [0.792-0.816]
+  SRC        0.4997 +- 0.0497 | 0.5696  [0.550-0.589]
+  AUC_KL>3   0.9092 +- 0.0319 | 0.9389
+  AUC KL>0   0.7187 +- 0.0250 | 0.7532
+
+STAGE 2 - PSEUDO-LABEL (grade KL asli dari gambar yang terpilih)
+  jenis                                n   % KL>=2   % KL0   % KL4  dari label OA   KL0 KL1 KL2 KL3 KL4
+  iterasi 1 (dari Stage 1)            10     100.0     0.0    60.0              0     0   0   0   4   6
+  ("dari label OA" = berapa pseudo-label yang termasuk 30 OA berlabel per seed; "-" bila --meta tidak diisi)
+
+Epoch terpakai (get_best_epoch Belton): dcrl_iterasi1={'1001': 1400, '138647': 1340, '193': 1240, '244959': 1280, '34': 1190, '44': 1400, '71530': 1340, '875688': 1360, '8765': 1170, '985772': 800}, dcrl_iterasi2={}, prediktor_parah=990
+File: per_seed.csv, ringkasan.csv, pseudo_label.csv, ensemble_<stage>_<split>.csv

@@ -1,0 +1,56 @@
+====================================================================================================
+HASIL STAGE 1 - 3   (model: (tanpa prefix) | folder: D:\PCD\PCD-KNEE\ss_fewsome)
+mean +- SD antar seed | ensemble [CI 95% bootstrap]
+====================================================================================================
+
+Stage 1 [test]  10 seed
+  AUC_KL     0.7162 +- 0.0137 | 0.7276  [0.702-0.750]
+  SRC        0.4094 +- 0.0289 | 0.4316  [0.391-0.471]
+  AUC_KL>3   0.8759 +- 0.0266 | 0.8943
+  AUC KL>0   0.6881 +- 0.0141 | 0.6996
+
+Stage 1 [train = unlabelled Belton]  10 seed
+  AUC_KL     0.7254 +- 0.0090 | 0.7408  [0.728-0.753]
+  SRC        0.4159 +- 0.0166 | 0.4432  [0.422-0.464]
+  AUC_KL>3   0.8665 +- 0.0172 | 0.8813
+  AUC KL>0   0.6838 +- 0.0077 | 0.6971
+
+Stage 3 DCRL iterasi 1 [test]  10 seed
+  AUC_KL     0.7780 +- 0.0073 | 0.7882  [0.767-0.810]
+  SRC        0.5167 +- 0.0149 | 0.5353  [0.499-0.571]
+  AUC_KL>3   0.9389 +- 0.0155 | 0.9459
+  AUC KL>0   0.7338 +- 0.0109 | 0.7434
+
+Stage 3 DCRL iterasi 1 [train = unlabelled Belton]  10 seed
+  AUC_KL     0.7986 +- 0.0072 | 0.8124  [0.801-0.823]
+  SRC        0.5467 +- 0.0139 | 0.5699  [0.553-0.588]
+  AUC_KL>3   0.9413 +- 0.0126 | 0.9473
+  AUC KL>0   0.7483 +- 0.0081 | 0.7606
+
+Stage 3 DCRL iterasi 2 [test]  5 seed
+  AUC_KL     0.8001 +- 0.0062 | 0.8038  [0.783-0.825]
+  SRC        0.5614 +- 0.0114 | 0.5679  [0.532-0.602]
+  AUC_KL>3   0.9376 +- 0.0031 | 0.9359
+  AUC KL>0   0.7607 +- 0.0059 | 0.7643
+
+Prediktor parah [test]  5 seed
+  AUC_KL     0.6632 +- 0.0172 | 0.6696  [0.643-0.696]
+  SRC        0.3054 +- 0.0290 | 0.3163  [0.268-0.358]
+  AUC_KL>3   0.8650 +- 0.0210 | 0.8726
+  AUC KL>0   0.6199 +- 0.0141 | 0.6247
+
+FINAL [test]  5 seed
+  AUC_KL     0.7958 +- 0.0054 | 0.7992  [0.778-0.821]
+  SRC        0.5556 +- 0.0105 | 0.5617  [0.525-0.596]
+  AUC_KL>3   0.9367 +- 0.0019 | 0.9355
+  AUC KL>0   0.7589 +- 0.0057 | 0.7624
+
+STAGE 2 - PSEUDO-LABEL (grade KL asli dari gambar yang terpilih)
+  jenis                                n   % KL>=2   % KL0   % KL4  dari label OA   KL0 KL1 KL2 KL3 KL4
+  iterasi 1 (dari Stage 1)            30     100.0     0.0    33.3              -     0   0   8  12  10
+  parah (dari Stage 1)                 3     100.0     0.0   100.0              -     0   0   0   0   3
+  iterasi 2 (dari DCRL iterasi 1)    263      98.5     0.4    32.7              -     1   3  62 111  86
+  ("dari label OA" = berapa pseudo-label yang termasuk 30 OA berlabel per seed; "-" bila --meta tidak diisi)
+
+Epoch terpakai (get_best_epoch Belton): dcrl_iterasi1={'1001': 1220, '138647': 1330, '193': 1310, '244959': 1290, '34': 1360, '44': 1250, '71530': 1360, '875688': 1270, '8765': 1230, '985772': 1390}, dcrl_iterasi2={'1001': 1770, '138647': 2290, '193': 1920, '34': 2020, '44': 2200}, prediktor_parah=990
+File: per_seed.csv, ringkasan.csv, pseudo_label.csv, ensemble_<stage>_<split>.csv
